@@ -5,7 +5,8 @@
 
 double normal();
 
-class MC_European_option{
+class MC_European_option
+{
 public:
 	MC_European_option(double r, double sigma, double S_0, double K, double T, int N, int M);
 
