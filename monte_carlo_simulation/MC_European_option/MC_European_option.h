@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-double normal();
+// double normal();
 
 class MC_European_option
 {

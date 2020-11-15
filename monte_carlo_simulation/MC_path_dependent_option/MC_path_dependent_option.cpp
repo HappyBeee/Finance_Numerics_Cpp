@@ -3,16 +3,24 @@
 #include <stdlib.h>
 #include <time.h>
 #include <algorithm>
+// #include <random>
 
 #define PI 3.1415926535898
 #define E 2.71828182846
 
 using namespace std;
 
-double normal(){
-	double x[2] = {double(rand())/RAND_MAX, double(rand())/RAND_MAX};
-	return sqrt(-2*log(x[0]))*cos(2*PI*x[1]);
+double normal()
+{
+	double x, y;
+	x = (0.5+rand())/(double(RAND_MAX)+1);
+	y = (0.5+rand())/(double(RAND_MAX)+1);
+	
+	return sqrt(-2*log(x))*cos(2*PI*y);
 }
+
+// default_random_engine generator;
+// normal_distribution<double> normal(0.0, 1.0);
 
 double * sample_path(double r, double sigma, double S_0, double T, int N)
 {

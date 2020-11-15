@@ -1,4 +1,5 @@
 #include "MC_European_option.h"
+#include <random>
 
 #define PI 3.14159265359
 #define E 2.71828182846
@@ -7,9 +8,15 @@ using namespace std;
 
 double normal()
 {
-	double x[2] = {double(rand())/RAND_MAX, double(rand())/RAND_MAX};
-	return sqrt(-2*log(x[0]))*cos(2*PI*x[1]);
+	double x, y;
+	x = (0.5+rand())/(double(RAND_MAX)+1);
+	y = (0.5+rand())/(double(RAND_MAX)+1);
+	
+	return sqrt(-2*log(x))*cos(2*PI*y);
 }
+// default_random_engine generator;
+// normal_distribution<double> normal(0.0, 1.0);
+
 
 MC_European_option::MC_European_option(double r, double sigma, double S_0, double K, double T, int N, int M)
 {
